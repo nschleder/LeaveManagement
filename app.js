@@ -1,4 +1,4 @@
-(function() {
+(function() { // Testing Sync via Github.
 	var app = angular.module('leaveManagement', ['angular-growl', 'ngAnimate', 'ngDialog', 'ngRoute', 'angularMoment', 'mm.foundation', '720kb.datepicker'])
 		.factory('$data', ['$http', function($http) {
 			return {
