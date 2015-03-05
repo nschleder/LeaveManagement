@@ -1,0 +1,88 @@
+<fieldset>
+	<i class="fi-x closeModal noSelect" ng-click="close()"></i>
+	<legend>
+		<h3 ng-if="view !== 'New Request'">Request from {{request.user}}</h3>
+		<h3 ng-if="view === 'New Request'">New Request</h3>
+	</legend>
+	<div class="row">
+		<label class="large-2 columns">Start Date:
+			<datepicker date-format="yyyy-MM-dd" >
+			<input 
+				type="text" 
+				ng-model="request.date" 
+				ng-disabled="view !== 'New Request'" 
+				required
+			></datepicker>
+		</label>
+		
+		<label class="large-2 columns" ng-if="request.endDate">End Date:
+			<datepicker date-format="yyyy-MM-dd" >
+			<input 
+				type="text" 
+				ng-model="request.endDate" 
+				ng-readonly="view !== 'New Request'" 
+				required
+			></datepicker>
+		</label>
+		
+		<label class="large-3 column">Type of Leave
+			<select 
+				ng-model="request.type" 
+				ng-options="cp as name for (cp, name) in leaveType" 
+				ng-disabled="view !== 'New Request'" 
+				required
+			></select>
+		</label>
+		
+		<label class="large-3 columns end">Status:
+			<input 
+				type="text" 
+				ng-model="request.status" 
+				ng-readonly="view !== 'New Request'" 
+				required
+		></label>
+	</div>	
+	
+	<div class="row">
+		<label class="large-12 columns">Comments:
+			<textarea 
+				ng-model="request.comments" 
+				ng-readonly="view === 'Request Info'" 
+				required
+			></textarea>
+		</label>
+	</div>
+	
+	<div class="row panel mbzero" ng-if="view !== 'New Request'">
+		<label class="large-12 columns" >Manager Comments:
+			<textarea 
+				rows=3 
+				ng-model="request.managerComments" 
+				ng-readonly="view !== 'Request Info'" 
+				placeholder="Manager Comments Here"
+				required
+			></textarea>
+		</label>
+	</div>
+	
+	<div class="row">
+		<input 
+			class="large-2 columns button tiny mbzero" 
+			ng-click="request.status = 'approved'; updateRequest(request)" 
+			ng-if="view === 'Request Info'"
+			value="Approve"
+		>
+		<input 
+			class="large-2 columns button tiny mbzero" 
+			ng-click="request.status = 'rejected'; updateRequest(request)" 
+			ng-if="view === 'Request Info'"
+			value="Reject"
+		>
+		<input 
+			class="large-2 columns button tiny mbzero right" 
+			ng-click="submitRequest(request)"
+			ng-if="view === 'New Request'"
+			value="new request"
+		>
+	</div>
+</fieldset>

@@ -1,0 +1,36 @@
+<top-bar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="#">Leave Management</a></h1>
+		</li>
+		<li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
+	</ul>
+
+	<top-bar-section>
+		<!-- Right Nav Section -->
+		<ul class="right">
+			<li ng-class="checkLoc('profile')" has-dropdown>
+				<a href="/?page_id=1030/profile">Home</a>
+				<ul top-bar-dropdown>
+					<!-- <li><a href="#">View Accrual <i class="fi-list-thumbnails right"></i></a></li> -->
+					<li><a href="#" style="min-width:140px;">Accrual Report<i class="fi-graph-trend right"></i></a></li>
+					<li><a href="#" ng-click="newRequestPopup()">Request Leave<i class="fi-plus right"></i></a></li>
+				</ul>
+			</li>
+			
+			<li ng-class="checkLoc('admin')" has-dropdown>
+				<a href="/?page_id=1030/admin">Admin View</a>
+				<ul top-bar-dropdown>
+					<li><a href="#" style="min-width:130px;">Edit Holidays<i class="fi-pencil right"></i></a></li>
+				</ul>
+			</li>
+			
+			<li ng-class="checkLoc('manager')" has-dropdown>
+				<a href="/?page_id=1030/manager">Manager View</a>
+				<ul top-bar-dropdown>
+					<li><a href="#" style="min-width:160px;">Employee Reports<i class="fi-graph-trend right"></i></a></li>
+				</ul>
+			</li>
+		</ul>
+	</top-bar-section>
+</top-bar>

@@ -1,0 +1,220 @@
+<form>
+	<fieldset>
+		<legend><h3>Profile Info</h3></legend>
+		<div class="row">
+			<label class="large-3 column">Name:
+				<input class="noGray" type="text" ng-model='profile.name' readonly>
+			</label>
+			<label class="large-3 column">User Name:
+				<input class="noGray" type="text" ng-model='profile.user' readonly>
+			</label>
+			<label class="large-3 column">E-mail:
+				<input class="noGray" type="text" ng-model='profile.email' readonly>
+			</label>
+			<label  class="large-3 column">Role:<br/>
+				<input  class="noGray" type="text" ng-model='profile.role' readonly>
+			</label>
+		</div>
+		<div class="row">
+			<label class="large-3 column">Manger:
+				<input class="noGray" type="text" ng-model='profile.manager' readonly>
+			</label>
+			<label class="large-9 column">Employees:
+				<input class="noGray" type="text" ng-model='profile.employees' readonly>
+			</label>
+		</div>
+		<table class="row tableHighlight">
+		<thead>
+			<tr>
+				<th>Leave Type</th>
+				<th>Start Balance</th>
+				<th>Earned</th>
+				<th>Taken</th>
+				<th>Adjustments</th>
+				<th>End Balance</th>
+			</tr>
+		</thead>
+		<tbody>{{ ::leaveType[requests.type] }}
+			<tr ng-repeat="(key, data) in profile.leave">
+				<td>{{ ::leaveType[key] }}</td>
+				<td>{{ ::data.startBalance }}</td>
+				<td>{{ ::data.earned }}</td>
+				<td>{{ ::data.taken }}</td>
+				<td>{{ ::data.adjustments }}</td>
+				<td>{{ ::data.endBalance }}</td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+</form>	
+		<!--
+		<fieldset class="panel">
+			<legend>
+				<h3 class="subheader">Statistics</h3>
+			</legend>
+			<div class="row">
+				<label class="large-3 column"> Accrol Alcameated:
+					<input  type="text">
+				</label>
+		
+				<label class="large-3 column">Total days of Leave:
+					<input type="text">
+				</label>
+				<label class="large-3 column">Sick Leave Left:
+					<input type="text">
+				</label>
+				<label class="large-3 column">Personal Leave Left:<br/>
+				  <input type="text">
+				</label>	
+			</div>
+			<h5 class"subheader"><center>Type of leave</center></h5>
+			<div class="row">
+				<label class="large-1 column"><span popover="Vacation" popover-trigger="mouseenter">V</span>:
+					<input type="text">
+				</label>
+				
+				<label class="large-1 column"><span popover="Sick Leave" popover-trigger="mouseenter">SL</span>:
+					<input type="text">
+				</label>
+				
+				<label class="large-1 column"><span popover="Family Sick Leave" popover-trigger="mouseenter">FS</span>:
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Comp Time Used (CU):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Holiday Float (HF):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Bereavement (B):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Jury Duty (JD):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Witness Duty (WD):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Military Leave (ML):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Admin Leave (AL):
+					<input type="text">
+				</label>
+				
+				<label class="large-2 column"> Incentive Pay (IP):
+					<input type="text">
+				</label>
+			</div>	
+			<div class="row">
+				<label class="large-1 column"> <span data-tooltip aria-haspopup="true" class="has-tip" title="Authorized Leave without Pay">(LA):</span>
+					<input type="text">
+				</label>
+				
+				<label class="large-1 column"> <span data-tooltip aria-haspopup="true" class="has-tip" title="Unauthorized Leave without Pay">(LU):</span>
+					<input type="text">
+				</label>
+			</div>
+		</fieldset>
+		-->
+<fieldset>
+	<legend><h3>Pending Requests</h3></legend>
+	<table class="row tableHighlight">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Type</th>
+				<th>Status</th>
+				<th>User Comments</th>
+				<th>Manager Comments</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="requests in userData" ng-click="requestInfoPopup(getRequest(requests))">
+				<td>{{ ::requests.date }}</td>
+				<td>{{ ::leaveType[requests.type] }}</td>
+				<td>{{ ::requests.status }}</td>
+				<td>{{ ::requests.comments }}</td>
+				<td>{{ ::requests.managerComments }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<button class="large-1 column button tiny" ng-click="">See More</button>
+</fieldset>
+
+<div>
+<fieldset>
+	<legend><h3>Past Requests</h3></legend>
+	<div>
+	<table class="row tableHighlight">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Type</th>
+				<th>Status</th>
+				<th>User Comments</th>
+				<th>Manager Comments</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="userData in userData" ng-click="">
+				<td>{{ userData.date }}</td>
+				<td>{{ leaveType[userData.type] }}</td>
+				<td>{{ userData.status }}</td>
+				<td>{{ userData.comments }}</td>
+				<td>{{ userData.managerComments }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<button class="large-1 column button tiny" ng-click="">See More</button>
+	</div>
+</fieldset>
+</div>
+<pre> <h3>TODO</h3>
+Using the see more have it talk to the server and grap the next ideration of data
+			Same with the past requests
+Style it to look better
+
+See how to beable to change dates and make it so when updating request not change untell they are done.
+</pre>
+<!--
+<div ng-controller="ProfileModalCtrl">
+<pre>{{scope.data|json}}</pre>
+		<pre>{{$scope.items|json}}</pre>
+	<script type="text/ng-template" id="profile.html">
+		
+		<fieldset>
+			<legend><h3>Request Leave</h3></legend>
+			<div class="row">
+				<datepicker date-format="yyyy-MM-dd" class="large-4 column">
+					<lable>State Date:
+						<input type="text">
+					</lable>
+				</datepicker>
+				<datepicker date-format="yyyy-MM-dd" class="large-4 column">
+					<lable>End Date:
+						<input type="text">
+					</lable>
+				</datepicker>
+				<lable class="large-4 column">Type of Leave
+				<select ng-model="selectedItem" ng-options="cp as name for (cp, name) in leaveType"> </select>
+				</lable>
+			</div>
+			<textarea rows="5" name="comment" placeholder="Enter comments here..."></textarea>
+		</fieldset>
+		<button class="button" ng-click="ok()">OK</button>
+		<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+	</script>
+
+	<button class="button" ng-click="open()">Open me!</button>
+	<div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+-->
+

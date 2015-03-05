@@ -1,0 +1,97 @@
+<div>
+	<table class="bTable" style="width:100%">
+		<col>
+		<col ng-repeat="day in days" ng-class="holidays(day)" />
+		<thead>
+			<tr><th style="width:8rem;" rowspan=2>Name</th><th ng-repeat="day in days">{{day | amDateFormat: 'ddd'}}</th></tr>
+			<tr><th ng-repeat="day in days"><small>{{day | amDateFormat: 'MMM Do' }}</small></th></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(name, request) in empKeyReq">
+				<td>{{name}}</td>
+				<td 
+					ng-repeat="day in days"
+					ng-click="printRequest(request, day, TRUE) && requestInfoPopup(printRequest(request, day))"
+					ng-class="{ highlight: printRequest(request, day, TRUE) }"
+					style="position:relative;"
+				>{{ printRequest(request, day).type }}
+				<i ng-class="caliIcon(request, day)" class="caliIcon noSelect"></i>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<fieldset>
+		<legend>
+			<h3>New Requests</h3>
+		</legend>
+		<table class="row tableHighlight">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Date</th>
+					<th>Type</th>
+					<th>Status</th>
+					<th>User Comments</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="request in requests" ng-if="request.status === 'new'">
+					<td>{{request.user}}</td>
+					<td>{{request.date}}</td>
+					<td>{{request.type}}</td>
+					<td>{{request.status}}</td>
+					<td>{{request.comments}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan=5>
+						<li>New - Cancelled - Approved - Rejected
+						<li>write custom sorting function to sort the new/past requests by timestamp
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</fieldset>
+	
+	<fieldset>
+		<legend>
+			<h3>Past Requests</h3>
+		</legend>
+		<table class="row tableHighlight">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Type</th>
+					<th>Status</th>
+					<th>User Comments</th>
+					<th>Manager Comments</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="request in requests" ng-if="request.status !== 'new'">
+					<td>{{request.user}}</td>
+					<td>{{request.date}}</td>
+					<td>{{request.type}}</td>
+					<td>{{request.status}}</td>
+					<td>{{request.comments}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan=2>
+						<pre>$scope.empKeyReq:</pre>
+						<pre>{{empKeyReq | json}}</pre>
+					</td>
+					<td colspan=3>
+						<pre>$scope.requests:</pre>
+						<pre>{{requests | json}}</pre>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</fieldset>
+</div>

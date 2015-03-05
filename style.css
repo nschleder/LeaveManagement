@@ -1,0 +1,196 @@
+#branding {
+	display: none;
+}
+#page {
+	max-width: 90%;
+}
+#logout {
+	display: none;
+}
+small {
+	font-size:55%;
+}
+.caliIcon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.7rem;
+	text-shadow: 0.05rem 0.05rem 0.01rem rgba(0, 0, 0, 0.64);
+}
+.yellow {
+	color: rgb(255, 255, 70);
+}
+.red {
+	color: rgb(255, 70, 70);
+}
+.green {
+	color: rgb(70, 175, 70);
+}
+.row {
+	max-width: 100%;
+}
+.joyride-content-wrapper p {
+	color: #FFF;
+}
+.reveal-modal fieldset {
+	margin: 0.5rem 0;
+}
+.bTable tr.even, table tr.alt, table tr:nth-of-type(even) {
+	background: none;
+}
+.good {
+	background: green;
+}
+.highlight:hover {
+	cursor: pointer;
+	background: rgba(69,123,164, 0.15);
+}
+.tableHighlight tbody tr:not(.subrow):hover {
+	background-color: rgba(69,123,164, 0.15);
+	cursor: pointer;
+}
+.closeModal {
+	position: absolute;
+	top: 0.09rem;
+	right: 0.5rem;
+	color: #d8d8d8;
+	text-shadow: 0 0.05rem 0.01rem #000;
+}
+.closeModal:hover {
+	cursor: pointer;
+	text-shadow: 0 0 0.01rem #000;
+}
+.closeModal:active {
+	text-shadow: 0 0.05rem 0.01rem #000;
+}
+
+/*   - - - - - - - - - - - - (datepicker) - - - - - - - - - - - -  */
+._720kb-datepicker-calendar {
+	margin: -1rem auto 0 -.5%;
+}
+._720kb-datepicker-calendar-header:nth-child(odd) {
+	background: #333;
+}
+._720kb-datepicker-calendar-header {
+	line-height: 2rem;
+}
+._720kb-datepicker-calendar-days-header {
+	background: rgba(69,123,164, 0.15);
+	line-height: 0.5rem;
+}
+._720kb-datepicker-calendar-day._720kb-datepicker-active, ._720kb-datepicker-calendar-day:hover {
+	background: rgba(69,123,164, 0.15);
+}
+/*   - - - - - - - - - - - - (HOLIDAYS) - - - - - - - - - - - -  */
+.holiday {
+	background: repeating-linear-gradient(
+		45deg,
+		rgb(115, 115, 115),
+		rgb(115, 115, 115) 5px,
+		rgb(219, 219, 219) 5px,
+		rgb(219, 219, 219) 10px
+	)
+}
+.inactive {
+	background: repeating-linear-gradient(
+		45deg,
+		rgba(204, 204, 204, 0.5),
+		rgba(255, 255, 255, 0) 5px
+	)
+}
+.christmas {
+  background: repeating-linear-gradient(
+		45deg, 
+		rgb(81, 166, 81),
+		rgb(81, 166, 81) 5px, 
+		rgb(245, 58, 58) 5px, 
+		rgb(245, 58, 58) 10px
+	)
+}
+.today {
+	background: rgb(255, 255, 190);
+}
+/*   - - - - - - - - - - - - (borderedTable) - - - - - - - - - - - -  */
+.bTable tbody tr td {
+	border-bottom: 1px solid #F0F0F0;
+}
+.bTable tbody tr td:not(:last-child) {
+	border-right: 1px solid #F0F0F0;
+}
+.bTable thead tr th {
+	width: 50px;
+	padding: 0.5rem 0.625rem 0rem;
+}
+.bTable thead tr:not(:first-child) th {
+	padding: 0 0.625rem;
+}
+.bTable thead tr th:not(:last-child) {
+	border-right: 1px solid #E0E0E0;
+}
+.noSelect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.mbzero {
+	margin-bottom: 0;
+}
+
+/*   - - - - - - - - - - - - input readonly background - - - - - - - - - - - -  */
+select:disabled, input[type="text"][disabled], input[type="text"][readonly], fieldset[disabled] input[type="text"], input[type="password"][disabled], input[type="password"][readonly], fieldset[disabled] input[type="password"], input[type="date"][disabled], input[type="date"][readonly], fieldset[disabled] input[type="date"], input[type="datetime"][disabled], input[type="datetime"][readonly], fieldset[disabled] input[type="datetime"], input[type="datetime-local"][disabled], input[type="datetime-local"][readonly], fieldset[disabled] input[type="datetime-local"], input[type="month"][disabled], input[type="month"][readonly], fieldset[disabled] input[type="month"], input[type="week"][disabled], input[type="week"][readonly], fieldset[disabled] input[type="week"], input[type="email"][disabled], input[type="email"][readonly], fieldset[disabled] input[type="email"], input[type="number"][disabled], input[type="number"][readonly], fieldset[disabled] input[type="number"], input[type="search"][disabled], input[type="search"][readonly], fieldset[disabled] input[type="search"], input[type="tel"][disabled], input[type="tel"][readonly], fieldset[disabled] input[type="tel"], input[type="time"][disabled], input[type="time"][readonly], fieldset[disabled] input[type="time"], input[type="url"][disabled], input[type="url"][readonly], fieldset[disabled] input[type="url"], input[type="color"][disabled], input[type="color"][readonly], fieldset[disabled] input[type="color"], textarea[disabled], textarea[readonly], fieldset[disabled] textarea {
+	background-color: #f2f2f2;
+}
+/*   - - - - - - - - - - - - $modal animations - - - - - - - - - - - -  */
+.fade {
+	opacity: 0;
+	-webkit-transition: opacity .075s linear;
+	transition: opacity .075s linear;
+}
+.fade.in {
+	opacity: 1;
+}
+.reveal-modal, dialog {
+	padding: 0rem 0.5rem;
+}
+.reveal-modal-bg {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	background: rgba(0, 0, 0, 0.45);
+	z-index: 98;
+	display: none;
+	top: 0;
+	left: 0;
+}
+.reveal-modal {
+	visibility: hidden;
+	display: none;
+	position: absolute;
+	z-index: 99;
+	border: solid 1px #666;
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.reveal-modal .column, .reveal-modal .columns {
+	min-width: 0;
+}
+.reveal-modal>:first-child {
+	margin-top: 0;
+}
+.reveal-modal>:last-child {
+	margin-bottom: 0;
+}
+.reveal-modal .close-reveal-modal {
+	font-size: 1.375rem;
+	line-height: 1;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.6875rem;
+	color: #aaa;
+	font-weight: bold;
+	cursor: pointer;
+}
